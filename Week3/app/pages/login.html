@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 1</title>
+    <!--removeIf(production)-->
+    <link rel="stylesheet" type="text/css" href="../styles/app.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <!--endRemoveIf(production)-->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+
+<body>
+    <div class="menu-bar">
+        <span><a href="index.html"><img class="header-img" src="../images/web_design.png"></a></span>
+        <span class="menu-item"><a class="header-text" href="login.html">Logoff</a></span>
+        <span class="menu-item"><a class="header-text" href="person.html">Person</a></span>
+        <span class="menu-item"><a class="header-text" href="student.html">Student</a></span>
+    </div>
+
+    <h3 class="table-header">Login</h3>
+
+      <form>
+            <div>
+                First Name: <input id='first-name' type='text'/>
+            <div>
+
+            <div>
+                Last Name: <input id="last-name" type='text'/>
+            </div>
+
+            <div>
+                <input id='submit-btn' type='button' value='Submit'/>
+            </div>
+
+    <div id='error'></div>
+
+
+    <div class="footer">
+        Copyright Timothy Capehart 2019
+    </div>
+
+    <!--removeIf(production)-->
+    <script src='../js/login.js'></script>
+    <!--endRemoveIf(production)-->
+
+    <!-- inject:js -->
+    <!-- endinject -->
+
+    <script>
+        $(document).ready(function () {
+            initializeRegistration();
+        });
+    </script>
+
+</body>
+
+</html>

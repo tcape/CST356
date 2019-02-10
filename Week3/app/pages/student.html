@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 1</title>
+    <!--removeIf(production)-->
+    <link rel="stylesheet" type="text/css" href="../styles/app.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <!--endRemoveIf(production)-->
+
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+
+<body>
+
+    <div class="menu-bar">
+        <span><a href="index.html"><img class="header-img" src="../images/web_design.png"></a></span>
+        <span class="menu-item"><a class="header-text" href="login.html">Logoff</a></span>
+        <span class="menu-item"><a class="header-text" href="person.html">Person</a></span>
+        <span class="menu-item"><a class="header-text" href="student.html">Student</a></span>
+    </div>
+
+    <h3 class="table-header">Student Table</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+
+    <div class="footer">
+        Copyright Timothy Capehart 2019
+    </div>
+
+    <!-- inject:js -->
+    <!-- endinject -->
+
+    <!--removeIf(production)-->
+    <script src='../js/students.js'></script>
+    <!--endRemoveIf(production)-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            initializeStudents();
+        });
+    </script>
+
+</body>
+
+</html>
