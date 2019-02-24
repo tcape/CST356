@@ -43,7 +43,7 @@
                 Vue.axios.get(studentsApi).then(
                     (response) => {
                         console.log(response)
-                        this.student = response.data;
+                        this.students = response.data;
                     },
                     (error) => {
                         console.log(error)
