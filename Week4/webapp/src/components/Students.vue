@@ -1,60 +1,50 @@
 <template>
 <div>
-
-    <h3 class="table-header">People Table</h3>
+    <h3 class="table-header">Student Table</h3>
 
     <table>
         <thead>
             <tr>
-                <th>First Name</th>
-                <th>Middle Initial</th>
-                <th>Last Name</th>
+                <th>Student ID</th>
+                <th>Email Address</th>
             </tr>
         </thead>
         <tbody>
-             <tr v-for="person in persons" :key="person.id">
-                    <td>{{ person.firstName }}</td>
-                    <td>{{ person.middleInitial }}</td>
-                    <td>{{ person.lastName }}</td>
-                </tr>
+             <tr v-for="student in students">
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.email }}</td>
+            </tr>
         </tbody>
     </table>
+
 
     <div class="footer">
         Copyright Timothy Capehart 2019
     </div>
+
+  
 </div>
 
 </template>
 
 <script>
-    import Vue from 'vue';
     export default {
-        name: 'Persons',
-        
-        data () {
-            return {
-                persons: []
-            }
+        name: 'Student',
+        mounted(){
+            this.students = getStudents();
         },
-        methods: {
-            getPersons: function() {
-                let personsApi = process.env.PERSONS_API;
-                Vue.axios.get(personsApi).then(
-                    (response) => {
-                        console.log(response)
-                        this.persons = response.data;
-                    },
-                    (error) => {
-                        console.log(error)
-                    }
-                );  
+        data(){
+            return{
+                students: []
             }
-        },
-        mounted() {
-            this.getPersons();
         }
     }
+    function getStudents(){
+        return JSON.parse(testStudents).students;
+    }
+
+    var testStudents = '{"students": [{"id": 3738372,"email": "bob@gmail.com"}, {"id": 3938204,"email": "joe@gmail.com"}, {"id": 9876543,"email": "sarah@gmail.com"}, {"id": 1234567,"email": "mary@gmail.com"}, {"id": 9674532,"email": "billy@gmail.com"}]}';
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

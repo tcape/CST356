@@ -1,60 +1,30 @@
 <template>
 <div>
-
-    <h3 class="table-header">People Table</h3>
-
-    <table>
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Middle Initial</th>
-                <th>Last Name</th>
-            </tr>
-        </thead>
-        <tbody>
-             <tr v-for="person in persons" :key="person.id">
-                    <td>{{ person.firstName }}</td>
-                    <td>{{ person.middleInitial }}</td>
-                    <td>{{ person.lastName }}</td>
-                </tr>
-        </tbody>
-    </table>
+ <h1 class="index-header">CST356 Lab 1</h1>
+   
+    <br />
+    <h3>Heading for Paragraph 1</h3>
+    <p>This is the first paragraph of this webpage.</p>
+    <h3>Heading for Paragraph 2</h3>
+    <p>This is the second paragraph of this webpage.</p>
+    <h3>Heading for Paragraph 3</h3>
+    <p>This is the first paragraph of this webpage.</p>
 
     <div class="footer">
         Copyright Timothy Capehart 2019
     </div>
 </div>
-
 </template>
 
 <script>
-    import Vue from 'vue';
-    export default {
-        name: 'Persons',
-        
-        data () {
-            return {
-                persons: []
-            }
-        },
-        methods: {
-            getPersons: function() {
-                let personsApi = process.env.PERSONS_API;
-                Vue.axios.get(personsApi).then(
-                    (response) => {
-                        console.log(response)
-                        this.persons = response.data;
-                    },
-                    (error) => {
-                        console.log(error)
-                    }
-                );  
-            }
-        },
-        mounted() {
-            this.getPersons();
-        }
+export default {
+  name: 'Home',
+  data () {
+    return {
+     
     }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -136,3 +106,4 @@ table, th, td {
     margin-top: 20px;
 }
 </style>
+

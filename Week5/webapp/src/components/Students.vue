@@ -10,8 +10,8 @@
             </tr>
         </thead>
         <tbody>
-             <tr v-for="student in students">
-                    <td>{{ student.id }}</td>
+             <tr v-for="student in students":key="student.id">
+                    <td>{{ student.studentId }}</td>
                     <td>{{ student.email }}</td>
             </tr>
         </tbody>
@@ -28,23 +28,33 @@
 </template>
 
 <script>
+    import Vue from 'vue';
     export default {
-        name: 'Student',
-        mounted(){
-            this.students = getStudents();
-        },
-        data(){
-            return{
+        name: 'Students',
+        
+        data () {
+            return {
                 students: []
             }
+        },
+        methods: {
+            getStudents: function() {
+                let studentsApi = process.env.STUDENTS_API;
+                Vue.axios.get(studentsApi).then(
+                    (response) => {
+                        console.log(response)
+                        this.student = response.data;
+                    },
+                    (error) => {
+                        console.log(error)
+                    }
+                );  
+            }
+        },
+        mounted() {
+            this.getStudents();
         }
     }
-    function getStudents(){
-        return JSON.parse(testStudents).students;
-    }
-
-    var testStudents = '{"students": [{"id": 3738372,"email": "bob@gmail.com"}, {"id": 3938204,"email": "joe@gmail.com"}, {"id": 9876543,"email": "sarah@gmail.com"}, {"id": 1234567,"email": "mary@gmail.com"}, {"id": 9674532,"email": "billy@gmail.com"}]}';
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

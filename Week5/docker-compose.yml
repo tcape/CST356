@@ -1,0 +1,16 @@
+version: '3'
+services:
+  webapp:
+    build: ./webapp
+    image: webapp
+    container_name: webapp
+    ports:
+     - "8080:80"
+    depends_on:
+      - webapi
+  webapi:
+    build: ./webapi
+    image: webapi
+    container_name: webapi
+    ports:
+     - "8081:80"

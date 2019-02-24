@@ -12,11 +12,31 @@
             </tr>
         </thead>
         <tbody>
-             <tr v-for="person in persons" :key="person.id">
-                    <td>{{ person.firstName }}</td>
-                    <td>{{ person.middleInitial }}</td>
-                    <td>{{ person.lastName }}</td>
-                </tr>
+            <tr>
+                <td>Timothy</td>
+                <td>M</td>
+                <td>Capehart</td>
+            </tr>
+            <tr>
+                <td>Robert</td>
+                <td>A</td>
+                <td>Smith</td>
+            </tr>
+            <tr>
+                <td>Joe</td>
+                <td>S</td>
+                <td>Schmoe</td>
+            </tr>
+            <tr>
+                <td>Billy</td>
+                <td>R</td>
+                <td>Nelson</td>
+            </tr>
+            <tr>
+                <td>Henry</td>
+                <td>A</td>
+                <td>Tudor</td>
+            </tr>
         </tbody>
     </table>
 
@@ -28,33 +48,14 @@
 </template>
 
 <script>
-    import Vue from 'vue';
-    export default {
-        name: 'Persons',
-        
-        data () {
-            return {
-                persons: []
-            }
-        },
-        methods: {
-            getPersons: function() {
-                let personsApi = process.env.PERSONS_API;
-                Vue.axios.get(personsApi).then(
-                    (response) => {
-                        console.log(response)
-                        this.persons = response.data;
-                    },
-                    (error) => {
-                        console.log(error)
-                    }
-                );  
-            }
-        },
-        mounted() {
-            this.getPersons();
-        }
+export default {
+  name: 'Person',
+  data () {
+    return {
+     
     }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
