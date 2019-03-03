@@ -39,6 +39,48 @@ namespace webapi.Controllers
                 return NotFound();
             }
         }
+
+        [HttpPost]
+        public ActionResult<Person> AddPerson(Person person)
+        {
+            _dbContext.Person.Add(person);
+            _dbContext.SaveChanges();
+
+            return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status201Created);
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeletePerson(int id)
+        {
+            var person = new Person { Id = id };
+
+            _dbContext.Person.Attach(person);
+            _dbContext.Person.Remove(person);
+            _dbContext.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult UpdatePerson(int id, Person personUpdate)
+        {
+            var person = _dbContext.Person
+                .SingleOrDefault(p => p.Id == id);
+
+            if (person != null)
+            {
+                person.FirstName = personUpdate.FirstName;
+                person.MidInitial = personUpdate.MidInitial;
+                person.LastName = personUpdate.LastName;
+                person.Student = personUpdate.Student;
+
+                _dbContext.Update(person);
+
+                _dbContext.SaveChanges();
+            }
+
+            return NoContent();
+        }
        
     }
 }
